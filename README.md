@@ -2,9 +2,9 @@
 
 **Goat Bot-V2** is a powerful Facebook Messenger chatbot that runs using your **Facebook account's appstate (cookies)**. This bot listens to your messages in Messenger and handles 250+ useful commands with an easily customizable structure for developers.
 
-[![GitHub stars](https://img.shields.io/github/stars/MDAMINULSARDAR/Goat-Bot-V2)](https://github.com/MDAMINULSARDAR/Goat-Bot-V2/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/MDAMINULSARDAR/Goat-Bot-V2)](https://github.com/MDAMINULSARDAR/Goat-Bot-V2/network)
-[![GitHub issues](https://img.shields.io/github/issues/MDAMINULSARDAR/Goat-Bot-V2)](https://github.com/MDAMINULSARDAR/Goat-Bot-V2/issues)
+[![GitHub stars](https://img.shields.io/github/stars/AminulSardar1/Goat-Bot-V2)](https://github.com/AminulSardar1/Goat-Bot-V2/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/AminulSardar1/Goat-Bot-V2)](https://github.com/AminulSardar1/Goat-Bot-V2/network)
+[![GitHub issues](https://img.shields.io/github/issues/AminulSardar1/Goat-Bot-V2)](https://github.com/AminulSardar1/Goat-Bot-V2/issues)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## 🌟 Features
@@ -29,7 +29,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/MDAMINULSARDAR/Goat-Bot-V2.git
+git clone https://github.com/AminulSardar1/Goat-Bot-V2.git
 cd Goat-Bot-V2
 ```
 
@@ -196,7 +196,7 @@ fca-unofficial
 
 ### Getting Help
 
-- 📋 Check the [Issues](https://github.com/MDAMINULSARDAR/Goat-Bot-V2/issues) page
+- 📋 Check the [Issues](https://github.com/AminulSardar1/Goat-Bot-V2/issues) page
 - 💬 Join our community discussions
 - 📧 Contact support for critical issues
 
@@ -250,11 +250,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author & Credits
 
-**Developed with ❤️ by [MD. AMINUL SARDAR](https://github.com/MDAMINULSARDAR)**
+**Developed with ❤️ by [MD. AMINUL SARDAR](https://github.com/AminulSardar1)**
 
-- 🌐 **GitHub**: [MDAMINULSARDAR](https://github.com/MDAMINULSARDAR)
+- 🌐 **GitHub**: [MDAMINULSARDAR](https://github.com/AminulSardar1)
 - 📘 **Facebook**: [facebook.com/100071880593545](https://facebook.com/100071880593545)
-- 📧 **Contact**: [Create an Issue](https://github.com/MDAMINULSARDAR/Goat-Bot-V2/issues)
+- 📧 **Contact**: [Create an Issue](https://github.com/AminulSardar1/Goat-Bot-V2/issues)
 
 ### Special Thanks
 
@@ -285,6 +285,6 @@ If you find this project helpful:
 
 **[⬆ Back to Top](#-goat-bot-v2)**
 
-Made with ❤️ by [Aminul Sardar](https://github.com/MDAMINULSARDAR)
+Made with ❤️ by [Aminul Sardar](https://github.com/AminulSardar1)
 
 </div>
