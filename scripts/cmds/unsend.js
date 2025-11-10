@@ -5,7 +5,7 @@ module.exports = {
 		version: "1.0",
 		author: "James Dahao",
 		countDown: 5,
-		role: 0,
+		role: 2,
 		description: "Unsend bot's message",
 		category: "box chat",
 		guide: "reply the message you want to unsend and call the command {pn}"
