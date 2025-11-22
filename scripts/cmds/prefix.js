@@ -67,7 +67,7 @@ module.exports = {
 🛸 Your box chat prefix: %2
 🔧 Usage: Type "%2help" to see all commands
 👑 Bot by: @Aminusardar
-🔗 Facebook: https://www.facebook.com/100071880593545
+🔗 Facebook: facebook.com/100071880593545
 🎯 Enjoy using the bot! 💖
 ➽────────────────❥`
 		}
