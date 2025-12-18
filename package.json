@@ -4,7 +4,7 @@
   "description": "A simple Bot chat messenger using personal account. Made by NTKhang.fix by Aminul Sardar",
   "main": "index.js",
   "engines": {
-    "node": "20.x",
+    "node": "24.x",
     "npm": ">=10.0.0"
   },
   "dependencies": {
