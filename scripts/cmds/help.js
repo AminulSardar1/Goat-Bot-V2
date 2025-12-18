@@ -6,7 +6,7 @@ const { commands, aliases } = global.GoatBot;
 module.exports = {
 	config: {
 		name: "help",
-		version: "2.5",
+		version: "2.6",
 		author: "Aminul Sardar (Decorated from NTKhang)",
 		countDown: 5,
 		role: 0,
@@ -81,13 +81,15 @@ module.exports = {
 
 	onStart: async function ({ message, args, event, threadsData, getLang, role }) {
 		const { threadID } = event;
-		const threadData = await threadsData.get(threadID);
 		const prefix = getPrefix(threadID);
 
-		// If user requests command details
-		if (args[0]) {
+		// ================= COMMAND DETAILS =================
+		if (args[0] && isNaN(args[0])) {
 			const cmdName = args[0].toLowerCase();
-			let command = commands.get(cmdName) || commands.get(aliases.get(cmdName));
+			const command =
+				commands.get(cmdName) ||
+				commands.get(aliases.get(cmdName));
+
 			if (!command)
 				return message.reply(getLang("commandNotFound", args[0]));
 
@@ -101,7 +103,8 @@ module.exports = {
 				"2 (Bot admin)";
 
 			return message.reply(
-				getLang("commandInfo",
+				getLang(
+					"commandInfo",
 					cfg.name,
 					cfg.description?.en || cfg.description || "No description",
 					roleText,
@@ -112,18 +115,19 @@ module.exports = {
 			);
 		}
 
-		// Else: list commands
+		// ================= COMMAND LIST =================
 		let arrayInfo = [];
 		for (const [name, value] of commands) {
-			if (value.config.role > 1 && role < value.config.role) continue;
+			if (value.config.role > role) continue;
 			arrayInfo.push(name);
 		}
+
 		arrayInfo.sort();
 
-		// Pagination
 		const page = parseInt(args[0]) || 1;
 		const numberOfOnePage = 10;
 		const totalPage = Math.ceil(arrayInfo.length / numberOfOnePage);
+
 		if (page < 1 || page > totalPage)
 			return message.reply(getLang("pageNotFound", page));
 
@@ -136,6 +140,8 @@ module.exports = {
 			textList += `│ ▪ ${start + index + 1} ➩ ${cmd}\n`;
 		});
 
-		return message.reply(getLang("helpList", page, totalPage, textList));
+		return message.reply(
+			getLang("helpList", page, totalPage, textList)
+		);
 	}
 };
