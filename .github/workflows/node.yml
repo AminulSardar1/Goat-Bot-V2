@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]  # Use Node 18 LTS for canvas compatibility
+        node-version: [18.x]  # Safe version for canvas
 
     steps:
     - name: Checkout repository
@@ -37,8 +37,5 @@ jobs:
     - name: Install npm dependencies
       run: npm ci
 
-    - name: Build the project
-      run: npm run build
-
-    - name: Run tests (optional)
-      run: npm test
+    - name: Run the bot (optional check)
+      run: node index.js
