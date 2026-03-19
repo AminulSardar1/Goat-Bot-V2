@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@distube/ytdl-core": "^4.13.3",
-    "aminul-new-fca": "^1.0.29",
+    "aminul-new-fca": "^1.0.30",
     "axios": "^1.4.0",
     "bluebird": "^3.7.2",
     "bcrypt": "^5.0.1",
