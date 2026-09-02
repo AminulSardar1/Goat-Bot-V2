@@ -45,7 +45,8 @@ module.exports = {
 		const { threadID, senderID } = event;
 		const threadData = await threadsData.get(threadID);
 		const { members } = threadData;
-		const usersInGroup = (await api.getThreadInfo(threadID)).participantIDs;
+		const threadInfo = await api.getThreadInfo(threadID);
+		const usersInGroup = threadInfo?.participantIDs || (members ? members.map(m => m.userID) : []);
 		let arraySort = [];
 		for (const user of members) {
 			if (!usersInGroup.includes(user.userID))

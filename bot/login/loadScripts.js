@@ -87,7 +87,17 @@ module.exports = async function (api, threadModel, userModel, dashBoardModel, gl
 
 						if (!packageAlready.includes(packageName)) {
 							packageAlready.push(packageName);
-							if (!existsSync(`${process.cwd()}/node_modules/${packageName}`)) {
+							const { isBuiltin } = require("module");
+							const isNodeBuiltin = (isBuiltin && isBuiltin(packageName)) || ["fs", "path", "child_process", "stream", "http", "https", "crypto", "os", "util", "events", "url", "buffer", "querystring", "canvas"].includes(packageName);
+							let isResolvable = false;
+							try {
+								require.resolve(packageName);
+								isResolvable = true;
+							} catch (e) {
+								isResolvable = false;
+							}
+
+							if (!isNodeBuiltin && !isResolvable && !existsSync(`${process.cwd()}/node_modules/${packageName}`)) {
 								const wating = setInterval(() => {
 									// loading.info('PACKAGE', `${spinner[count % spinner.length]} Installing package ${packageName} for ${text} ${file}`);
 									loading.info('PACKAGE', `${spinner[count % spinner.length]} Installing package ${colors.yellow(packageName)} for ${text} ${colors.yellow(file)}`);

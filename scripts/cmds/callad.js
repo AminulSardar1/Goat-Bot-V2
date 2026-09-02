@@ -134,7 +134,8 @@ module.exports = {
 			case "adminReply": {
 				let sendByGroup = "";
 				if (isGroup) {
-					const { threadName } = await api.getThreadInfo(event.threadID);
+					const threadInfo = await api.getThreadInfo(event.threadID);
+					const threadName = threadInfo?.threadName || "Group";
 					sendByGroup = getLang("sendByGroup", threadName, event.threadID);
 				}
 				const formMessage = {

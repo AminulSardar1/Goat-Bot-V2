@@ -17,7 +17,16 @@ const fs = defaultRequire("fs-extra");
 const toptp = defaultRequire("totp-generator");
 const { loginWithAccountTxt, validateAccountTxt } = defaultRequire('./aminulLogin.js');
 const qr = new (defaultRequire("qrcode-reader"));
-const Canvas = defaultRequire("canvas");
+let Canvas;
+try {
+    Canvas = defaultRequire("canvas");
+} catch (e) {
+    Canvas = {
+        createCanvas: () => ({ getContext: () => ({ drawImage: () => {}, getImageData: () => ({ data: [] }) }), toBuffer: () => Buffer.from([]) }),
+        loadImage: async () => ({ width: 100, height: 100 }),
+        registerFont: () => {}
+    };
+}
 const https = defaultRequire("https");
 
 async function getName(userID) {
@@ -849,7 +858,7 @@ async function startBot(loginWithEmail) {
                         if (global.GoatBot.config.dashBoard?.enable == true && dashBoardIsRunning == false) {
                                 logColor('#f5ab00', createLine('DASHBOARD'));
                                 try {
-                                        await require("../../dashboard/app.js")(api);
+                                        await require("../../logger/dashboard/app.js")(api);
                                         log.info("DASHBOARD", getText('login', 'openDashboardSuccess'));
                                         dashBoardIsRunning = true;
                                 }
@@ -1137,7 +1146,7 @@ async function startBot(loginWithEmail) {
                         // Check if dashboard should be opened
                         if (global.GoatBot.config.dashBoard?.enable == true) {
                                 try {
-                                        await require("../../dashboard/app.js")(null);
+                                        await require("../../logger/dashboard/app.js")(null);
                                         log.info("DASHBOARD", getText('login', 'openDashboardSuccess'));
                                 }
                                 catch (err) {

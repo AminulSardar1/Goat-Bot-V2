@@ -1,8 +1,12 @@
+const fs = require("fs");
 const createFuncMessage = global.utils.message;
 const handlerCheckDB = require("./handlerCheckData.js");
 
 module.exports = (api, threadModel, userModel, dashBoardModel, globalModel, usersData, threadsData, dashBoardData, globalData) => {
-  const handlerEvents = require(process.env.NODE_ENV == 'development' ? "./handlerEvents.dev.js" : "./handlerEvents.js")(api, threadModel, userModel, dashBoardModel, globalModel, usersData, threadsData, dashBoardData, globalData);
+  const handlerEventsPath = (process.env.NODE_ENV == 'development' && fs.existsSync(__dirname + '/handlerEvents.dev.js')) 
+    ? "./handlerEvents.dev.js" 
+    : "./handlerEvents.js";
+  const handlerEvents = require(handlerEventsPath)(api, threadModel, userModel, dashBoardModel, globalModel, usersData, threadsData, dashBoardData, globalData);
 
   return async function (event) {
     if (

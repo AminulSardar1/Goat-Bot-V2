@@ -1,0 +1,6 @@
+{
+  "name": "GoatBot V2",
+  "description": "A Facebook Messenger chat bot and dashboard management platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

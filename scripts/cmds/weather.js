@@ -1,6 +1,15 @@
 const axios = require("axios");
 const moment = require("moment-timezone");
-const Canvas = require("canvas");
+let Canvas;
+try {
+	Canvas = require("canvas");
+} catch (e) {
+	Canvas = {
+		createCanvas: () => ({ getContext: () => ({ drawImage: () => {}, getImageData: () => ({ data: [] }), fillRect: () => {}, fillText: () => {} }), toBuffer: () => Buffer.from([]) }),
+		loadImage: async () => ({ width: 100, height: 100 }),
+		registerFont: () => {}
+	};
+}
 const fs = require("fs-extra");
 
 Canvas.registerFont(

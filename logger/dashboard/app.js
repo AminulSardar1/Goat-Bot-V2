@@ -11,7 +11,7 @@ const nodemailer = require("nodemailer");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const Passport = require("passport");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const axios = require("axios");
 const mimeDB = require("mime-db");
 const http = require("http");
@@ -47,31 +47,32 @@ module.exports = async (api) => {
 		clientId,
 		clientSecret,
 		refreshToken
-	} = gmailAccount;
+	} = gmailAccount || {};
 
-	const OAuth2 = google.auth.OAuth2;
-	const OAuth2_client = new OAuth2(clientId, clientSecret);
-	OAuth2_client.setCredentials({ refresh_token: refreshToken });
-	let accessToken;
+	let transporter = null;
 	try {
-		accessToken = await OAuth2_client.getAccessToken();
+		if (refreshToken) {
+			const OAuth2 = google.auth.OAuth2;
+			const OAuth2_client = new OAuth2(clientId, clientSecret);
+			OAuth2_client.setCredentials({ refresh_token: refreshToken });
+			const accessToken = await OAuth2_client.getAccessToken();
+			transporter = nodemailer.createTransport({
+				host: "smtp.gmail.com",
+				service: "Gmail",
+				auth: {
+					type: "OAuth2",
+					user: email,
+					clientId,
+					clientSecret,
+					refreshToken,
+					accessToken
+				}
+			});
+		}
 	}
 	catch (err) {
-		throw new Error(getText("Goat", "googleApiRefreshTokenExpired"));
+		console.warn("[Dashboard] Gmail OAuth token expired or unavailable - email features disabled");
 	}
-
-	const transporter = nodemailer.createTransport({
-		host: "smtp.gmail.com",
-		service: "Gmail",
-		auth: {
-			type: "OAuth2",
-			user: email,
-			clientId,
-			clientSecret,
-			refreshToken,
-			accessToken
-		}
-	});
 
 
 	const {

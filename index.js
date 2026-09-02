@@ -47,7 +47,7 @@ startProject();
  * Express server setup
  */
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 3000;
 
 // Serve static files from public directory
 app.use(express.static(path.join(__dirname, "public")));

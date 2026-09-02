@@ -191,20 +191,32 @@ module.exports = async function (databaseType, threadModel, api, fakeGraphql) {
 						message: `The first argument (threadID) must be a number, not a ${typeof threadID}`
 					});
 				}
-				threadInfo = threadInfo || await api.getThreadInfo(threadID);
-				const { threadName, userInfo, adminIDs } = threadInfo;
-				const newAdminsIDs = adminIDs.reduce(function (_, b) {
-					_.push(b.id);
+				if (!threadInfo) {
+					try {
+						threadInfo = await api.getThreadInfo(threadID);
+					} catch (e) {
+						threadInfo = null;
+					}
+				}
+				if (!threadInfo) {
+					throw new CustomError({
+						name: "THREAD_INFO_NOT_FOUND",
+						message: `Could not fetch information for thread "${threadID}"`
+					});
+				}
+				const { threadName = "", userInfo = [], adminIDs = [], nicknames = {} } = threadInfo;
+				const newAdminsIDs = (adminIDs || []).reduce(function (_, b) {
+					if (b && b.id) _.push(b.id);
 					return _;
 				}, []);
 
-				const newMembers = userInfo.reduce(function (arr, user) {
+				const newMembers = (userInfo || []).reduce(function (arr, user) {
 					const userID = user.id;
 					arr.push({
 						userID,
 						name: user.name,
 						gender: user.gender,
-						nickname: threadInfo.nicknames[userID] || null,
+						nickname: (nicknames && nicknames[userID]) || null,
 						inGroup: true,
 						count: 0,
 						permissionConfigDashboard: false
@@ -267,11 +279,24 @@ module.exports = async function (databaseType, threadModel, api, fakeGraphql) {
 						}));
 					}
 					const threadInfo = await get_(threadID);
-					newThreadInfo = newThreadInfo || await api.getThreadInfo(threadID);
-					const { userInfo, adminIDs, nicknames } = newThreadInfo;
-					let oldMembers = threadInfo.members;
+					if (!newThreadInfo) {
+						try {
+							newThreadInfo = await api.getThreadInfo(threadID);
+						} catch (e) {
+							newThreadInfo = null;
+						}
+					}
+					if (!newThreadInfo) {
+						if (threadInfo) return resolve(_.cloneDeep(threadInfo));
+						return reject(new CustomError({
+							name: "THREAD_INFO_NOT_FOUND",
+							message: `Could not fetch information for thread "${threadID}"`
+						}));
+					}
+					const { userInfo = [], adminIDs = [], nicknames = {}, threadName, threadTheme, emoji, imageSrc } = newThreadInfo;
+					let oldMembers = (threadInfo && threadInfo.members) ? [...threadInfo.members] : [];
 					const newMembers = [];
-					for (const user of userInfo) {
+					for (const user of (userInfo || [])) {
 						const userID = user.id;
 						const indexUser = _.findIndex(oldMembers, { userID });
 						const oldDataUser = oldMembers[indexUser] || {};
@@ -280,7 +305,7 @@ module.exports = async function (databaseType, threadModel, api, fakeGraphql) {
 							...oldDataUser,
 							name: user.name,
 							gender: user.gender,
-							nickname: nicknames[userID] || null,
+							nickname: (nicknames && nicknames[userID]) || null,
 							inGroup: true,
 							count: oldDataUser.count || 0,
 							permissionConfigDashboard: oldDataUser.permissionConfigDashboard || false
@@ -292,17 +317,17 @@ module.exports = async function (databaseType, threadModel, api, fakeGraphql) {
 						user.inGroup = false;
 						return user;
 					});
-					const newAdminsIDs = adminIDs.reduce(function (acc, cur) {
-						acc.push(cur.id);
+					const newAdminsIDs = (adminIDs || []).reduce(function (acc, cur) {
+						if (cur && cur.id) acc.push(cur.id);
 						return acc;
 					}, []);
 					let threadData = {
 						...threadInfo,
-						threadName: newThreadInfo.threadName,
-						threadThemeID: newThreadInfo.threadTheme?.id || null,
-						emoji: newThreadInfo.emoji,
+						threadName: threadName ?? threadInfo?.threadName,
+						threadThemeID: threadTheme?.id || threadInfo?.threadThemeID || null,
+						emoji: emoji ?? threadInfo?.emoji,
 						adminIDs: newAdminsIDs,
-						imageSrc: newThreadInfo.imageSrc,
+						imageSrc: imageSrc ?? threadInfo?.imageSrc,
 						members: [
 							...oldMembers,
 							...newMembers

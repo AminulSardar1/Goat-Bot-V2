@@ -57,12 +57,14 @@ module.exports = {
 			});
 		}
 		else if (args[0] == "die") {
-			const threadData = await api.getThreadInfo(event.threadID);
-			const membersBlocked = threadData.userInfo.filter(user => user.type !== "User");
+			const threadData = (await api.getThreadInfo(event.threadID)) || {};
+			const userInfo = threadData.userInfo || [];
+			const adminIDs = threadData.adminIDs || [];
+			const membersBlocked = userInfo.filter(user => user.type !== "User");
 			const errors = [];
 			const success = [];
 			for (const user of membersBlocked) {
-				if (user.type !== "User" && !threadData.adminIDs.some(id => id == user.id)) {
+				if (user.type !== "User" && !adminIDs.some(id => id == user.id)) {
 					try {
 						await api.removeUserFromGroup(user.id, event.threadID);
 						success.push(user.id);

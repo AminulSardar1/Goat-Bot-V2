@@ -44,12 +44,12 @@ Time: {dateTime}`
       if (threadData.settings.sendWelcomeMessage === false) return;
 
       const dataAddedParticipants = global.temp.welcomeEvent[threadID].dataAddedParticipants;
-      const threadInfo = await api.getThreadInfo(threadID);
+      const threadInfo = (await api.getThreadInfo(threadID)) || {};
 
       if (dataAddedParticipants.length === 0) return;
 
-      const membersCount = threadInfo.participantIDs.length;
-      const adminsCount = threadInfo.adminIDs.length;
+      const membersCount = threadInfo.participantIDs ? threadInfo.participantIDs.length : (threadData.members || []).length;
+      const adminsCount = threadInfo.adminIDs ? threadInfo.adminIDs.length : (threadData.adminIDs || []).length;
 
       for (const user of dataAddedParticipants) {
         const userName = user.fullName;

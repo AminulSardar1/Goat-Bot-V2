@@ -4,16 +4,14 @@
   "description": "A simple Bot chat messenger using personal account. Made by NTKhang.fix by Aminul Sardar",
   "main": "index.js",
   "engines": {
-    "node": "20.x",
+    "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
   "dependencies": {
     "@distube/ytdl-core": "^4.13.3",
-    "aminul-new-fca": "^1.0.29",
     "axios": "^1.4.0",
+    "bcryptjs": "^3.0.3",
     "bluebird": "^3.7.2",
-    "bcrypt": "^5.0.1",
-    "canvas": "^2.11.2",
     "cheerio": "^1.0.0-rc.12",
     "child_process": "^1.0.2",
     "connect-flash": "^0.1.1",
@@ -33,7 +31,7 @@
     "moment-timezone": "^0.5.34",
     "mongoose": "^6.3.1",
     "mqtt": "^4.3.7",
-"mumaker": "^2.0.0",
+    "mumaker": "^2.0.0",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.7.5",
     "npmlog": "^7.0.1",
@@ -44,6 +42,7 @@
     "qrcode-reader": "^1.0.4",
     "qs": "^6.11.0",
     "request": "^2.88.2",
+    "sagor-fca": "^0.0.20",
     "searchitunes": "^2.5.4",
     "sequelize": "^6.19.0",
     "socket.io": "^4.5.1",
@@ -53,9 +52,10 @@
     "websocket-stream": "^5.5.2"
   },
   "scripts": {
-    "start": "set NODE_ENV=&& node index.js",
-    "dev": "set NODE_ENV=development&& node index.js",
-    "prod": "set NODE_ENV=production&& node index.js"
+    "build": "echo 'No build required'",
+    "start": "node index.js",
+    "dev": "node index.js",
+    "prod": "node index.js"
   },
   "author": "NTKhang",
   "license": "MIT",

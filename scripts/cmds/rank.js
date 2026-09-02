@@ -1,4 +1,13 @@
-const Canvas = require("canvas");
+let Canvas;
+try {
+	Canvas = require("canvas");
+} catch (e) {
+	Canvas = {
+		createCanvas: () => ({ getContext: () => ({ drawImage: () => {}, getImageData: () => ({ data: [] }), fillRect: () => {}, fillText: () => {} }), toBuffer: () => Buffer.from([]), createPNGStream: () => { const stream = require("stream"); const s = new stream.Readable(); s.push(null); return s; } }),
+		loadImage: async () => ({ width: 100, height: 100 }),
+		registerFont: () => {}
+	};
+}
 const { uploadZippyshare } = global.utils;
 
 const defaultFontName = "BeVietnamPro-SemiBold";

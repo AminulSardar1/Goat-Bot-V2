@@ -66,7 +66,8 @@ module.exports = {
 		let nickname = args.join(" ");
 
 		if (args[0] === "all" || mentions.includes(event.threadID)) {
-			uids = (await api.getThreadInfo(event.threadID)).participantIDs;
+			const threadInfo = await api.getThreadInfo(event.threadID);
+			uids = threadInfo?.participantIDs || [];
 			nickname = args[0] === "all" ? args.slice(1).join(" ") : nickname.replace(event.mentions[event.threadID], "").trim();
 		}
 		else if (mentions.length) {

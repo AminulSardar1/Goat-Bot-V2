@@ -1,5 +1,3 @@
-const { getStreamFromURL } = require("fb-watchman");
-
 module.exports = {
   config: {
     name: "stats",
