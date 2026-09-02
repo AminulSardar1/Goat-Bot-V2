@@ -3,7 +3,7 @@ module.exports = {
     name: "ping",
     aliases: ["ms"],
     version: "1.0",
-    author: "Sandu",
+    author: "Aminul Sardar",
     role: 0,
     shortDescription: {
       en: "Displays the current ping of the bot's system."

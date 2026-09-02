@@ -9,7 +9,7 @@ module.exports = {
   config: {
     name: 'autorestart',
     aliases: [],
-    author: 'SKY',
+    author: "Aminul Sardar",
     version: '1.0',
     role: 2, // Set the required role (e.g., admin)
     shortDescription: {

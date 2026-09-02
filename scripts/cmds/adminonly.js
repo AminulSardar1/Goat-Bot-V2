@@ -7,7 +7,7 @@ module.exports = {
 		name: "adminonly",
 		aliases: ["adonly", "onlyad", "onlyadmin"],
 		version: "1.5",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 2,
 		description: {

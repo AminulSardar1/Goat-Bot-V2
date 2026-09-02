@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "prefix",
 		version: "1.5",
-		author: "NTKhang(aminul)",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: "Change bot's command prefix in your chat or globally (admin only)",
@@ -48,7 +48,6 @@ module.exports = {
 🛸 Prefix nhóm của bạn: %2
 🔧 Sử dụng: Gõ "%2help" để xem tất cả lệnh
 👑 Bot by: @Aminusardar
-🔗 Facebook: https://www.facebook.com/100071880593545
 🎯 Chúc bạn sử dụng bot vui vẻ! 💖
 ➽────────────────❥`
 		},
@@ -67,7 +66,6 @@ module.exports = {
 🛸 Your box chat prefix: %2
 🔧 Usage: Type "%2help" to see all commands
 👑 Bot by: @Aminusardar
-🔗 Facebook: https://www.facebook.com/100071880593545
 🎯 Enjoy using the bot! 💖
 ➽────────────────❥`
 		}

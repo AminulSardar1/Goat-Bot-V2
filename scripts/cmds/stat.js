@@ -3,7 +3,7 @@ module.exports = {
     name: "stats",
     aliases: ["stat","time"],
     version: "1.0",
-    author: "OtinXSandip",
+    author: "Aminul Sardar",
     role: 0,
     shortDescription: {
       en: "stats",

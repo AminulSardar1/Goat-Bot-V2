@@ -3,7 +3,7 @@ module.exports = {
     name: "uptime",
     aliases: ["up", "upt"],
     version: "1.2",
-    author: "Aminul sardar",
+    author: "Aminul Sardar",
     role: 0,
     shortDescription: {
       en: "Displays the bot's uptime."
@@ -34,7 +34,6 @@ module.exports = {
 💫 ${uptimeString}
 
 👑 Bot by: Aminulsardar
-🔗 Facebook: https://www.facebook.com/profile.php?id=100071880593545
 `;
 
     return api.sendMessage(message, event.threadID);

@@ -10,7 +10,7 @@ module.exports = {
     name: "yt",
     aliases: ["youtube", "yts"],
     version: "6.6",
-    author: "Aminul Sordar (Fixed by Gemini)",
+    author: "Aminul Sardar",
     role: 0,
     category: "media",
     shortDescription: "Search & download YouTube videos interactively",

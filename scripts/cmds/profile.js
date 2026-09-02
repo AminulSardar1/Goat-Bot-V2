@@ -4,7 +4,7 @@ module.exports = {
 aliases: ["pfp"],
 
 		version: "1.1",
-		author: "NIB",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		shortDescription: "PROFILE image",

@@ -3,7 +3,7 @@ module.exports = {
     name: "topexp",
     aliases: ['ranktop'],
     version: "1.0",
-    author: "OTINXSANDIP",
+    author: "Aminul Sardar",
     role: 0,
     shortDescription: {
       en: "Top 10 Exp users"

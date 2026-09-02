@@ -2,7 +2,7 @@ module.exports = {
 	config: {
 		name: "kick",
 		version: "1.4",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 1,
 		description: "Kick members out of the group chat",

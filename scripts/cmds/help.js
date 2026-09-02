@@ -7,7 +7,7 @@ module.exports = {
 	config: {
 		name: "help",
 		version: "2.5",
-		author: "Aminul Sardar (Decorated from NTKhang)",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: {
@@ -33,8 +33,6 @@ module.exports = {
 				" ━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━\n" +
 				"%3" +
 				" ━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━\n\n" +
-				"📌 How To Make Free This Bot:\n👉 Facebook.com/100071880593545\n\n" +
-				"🅞𝐖𝐍𝐄𝐑 🅑𝐨𝐭 🙊😝\n👉 m.me/100071880593545\n\n" +
 				"━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━",
 
 			commandInfo:
@@ -61,8 +59,6 @@ module.exports = {
 				" ━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━\n" +
 				"%3" +
 				" ━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━\n\n" +
-				"📌 Cách tạo bot free:\n👉 Facebook.com/100071880593545\n\n" +
-				"🅞𝐖𝐍𝐄𝐑 🅑𝐨𝐭 🙊😝\n👉 m.me/100071880593545\n\n" +
 				"━❮🖤❯━━━❪🕊️❫━━━❮🩷❯━",
 
 			commandInfo:
@@ -84,8 +80,8 @@ module.exports = {
 		const threadData = await threadsData.get(threadID);
 		const prefix = getPrefix(threadID);
 
-		// If user requests command details
-		if (args[0]) {
+		// If user requests command details (and args[0] is not a number)
+		if (args[0] && isNaN(args[0])) {
 			const cmdName = args[0].toLowerCase();
 			let command = commands.get(cmdName) || commands.get(aliases.get(cmdName));
 			if (!command)

@@ -5,7 +5,7 @@ module.exports = {
     name: "surah",
     aliases: ["surah"],
     version: "4.0",
-    author: "Aminul Sordar",
+    author: "Aminul Sardar",
     countDown: 5,
     role: 0,
     shortDescription: "Get Surah info + audio",

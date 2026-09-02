@@ -1,7 +1,7 @@
 module.exports = {
 config: {
 name: "autoseen",
-author: "massive credit to sandip",
+author: "Aminul Sardar",
 role: 0,
 shortDescription: "Text to image",
 guide: "{pn} <query>",

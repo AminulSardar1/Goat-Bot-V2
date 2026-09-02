@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "slot",
     version: "1.0",
-    author: "SKY",
+    author: "Aminul Sardar",
     shortDescription: {
       en: "Slot game",
     },

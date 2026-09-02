@@ -7,7 +7,7 @@ module.exports = {
   config: {
     name: "autolink",
     version: "1.2",
-    author: "Aminul Sordar",
+    author: "Aminul Sardar",
     countDown: 5,
     role: 0,
     shortDescription: "Auto download video from any link",

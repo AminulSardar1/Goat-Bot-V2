@@ -6,7 +6,7 @@ module.exports = {
 	config: {
 		name: "filteruser",
 		version: "1.6",
-		author: "NTKhang",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 1,
 		description: {

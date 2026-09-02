@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "adminassist",
     version: "1.5",
-    author: "SKY",
+    author: "Aminul Sardar",
     countDown: 5,
     role: 0,
     shortDescription: {

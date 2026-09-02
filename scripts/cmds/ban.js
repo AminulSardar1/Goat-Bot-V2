@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "ban",
 		version: "1.4",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 1,
 		description: {

@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["video2audio"],
     description: "Play rock paper scissors game with the bot",
     version: "1.2",
-    author: "milan",
+    author: "Aminul Sardar",
     countDown: 60,
    longDescription: {
 			vi: "tạo avatar anime",

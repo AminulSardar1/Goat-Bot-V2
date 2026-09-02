@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "bio",
     version: "1.7",
-    author: "James Dahao",
+    author: "Aminul Sardar",
     countDown: 5,
     role: 2,
     shortDescription: {

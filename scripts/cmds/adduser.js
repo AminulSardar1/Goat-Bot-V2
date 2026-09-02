@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "adduser",
 		version: "1.5",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 1,
 		description: "Add user to your group chat",

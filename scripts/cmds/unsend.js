@@ -3,7 +3,7 @@ module.exports = {
 		name: "unsend",
 		aliases: ["unsent", "uns"],
 		version: "1.0",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: "Unsend bot's message",

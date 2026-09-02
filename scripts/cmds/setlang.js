@@ -4,7 +4,7 @@ module.exports = {
 	config: {
 		name: "setlang",
 		version: "1.5",
-		author: "NTKhang",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: {

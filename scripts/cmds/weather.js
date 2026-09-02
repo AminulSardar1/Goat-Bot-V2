@@ -32,7 +32,7 @@ module.exports = {
 	config: {
 		name: "weather",
 		version: "1.2",
-		author: "NTKhang",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: {

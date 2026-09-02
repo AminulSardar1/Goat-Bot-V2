@@ -13,7 +13,7 @@ module.exports = {
 	config: {
 		name: "event",
 		version: "1.9",
-		author: "NTKhang",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 2,
 		description: {

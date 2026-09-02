@@ -3,7 +3,7 @@ module.exports = {
 		name: "balance",
 		aliases: ["bal"],
 		version: "1.2",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 0,
 		description: {

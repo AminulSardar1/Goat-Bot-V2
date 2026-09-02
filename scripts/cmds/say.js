@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "say",
     version: "1.1",
-    author: "Otinxsandip",
+    author: "Aminul Sardar",
     countDown: 5,
     role: 0,
     longDescription: "voice",

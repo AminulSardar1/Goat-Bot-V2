@@ -3,7 +3,7 @@ module.exports = {
 		name: "onlyadminbox",
 		aliases: ["onlyadbox", "adboxonly", "adminboxonly"],
 		version: "1.4",
-		author: "James Dahao",
+		author: "Aminul Sardar",
 		countDown: 5,
 		role: 1,
 		description: "Turn on/off only admin box can use bot",
