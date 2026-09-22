@@ -5,10 +5,22 @@
 
 const { spawn } = require("child_process");
 const express = require("express");
+const path = require("path");
 const log = require("./logger/log.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Serve public/index.html
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, () => {
+	log.info("SERVER", `Web server running on port ${PORT}`);
+});
 
 let restartCount = 0;
 const maxRestarts = 5;
@@ -26,18 +38,34 @@ function startProject() {
 	child.on("close", (code) => {
 		if (code === 2 && restartCount < maxRestarts) {
 			restartCount++;
-			log.info("RESTART", `Restarting Project... (${restartCount}/${maxRestarts})`);
+
+			log.info(
+				"RESTART",
+				`Restarting Project... (${restartCount}/${maxRestarts})`
+			);
+
 			setTimeout(startProject, 2000);
 		} else if (restartCount >= maxRestarts) {
-			log.err("RESTART", "Maximum restart attempts reached. Stopping...");
+			log.err(
+				"RESTART",
+				"Maximum restart attempts reached. Stopping..."
+			);
+
 			process.exit(1);
 		} else if (code !== 0) {
-			log.err("PROCESS", `Goat.js exited with code ${code}. No restart triggered.`);
+			log.err(
+				"PROCESS",
+				`Goat.js exited with code ${code}. No restart triggered.`
+			);
 		}
 	});
 
 	child.on("error", (err) => {
-		log.err("STARTUP", `Failed to start project: ${err.message}`);
+		log.err(
+			"STARTUP",
+			`Failed to start project: ${err.message}`
+		);
+
 		process.exit(1);
 	});
 }
@@ -47,6 +75,5 @@ setInterval(() => {
 	restartCount = 0;
 }, 300000);
 
-// Health check endpoint
 // Start Goat.js process
 startProject();
