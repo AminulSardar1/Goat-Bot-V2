@@ -159,10 +159,10 @@ module.exports = {
           "Yah This Bot creator : PRINCE RID((A.R))",
           "হা বলো, শুনছি আমি 🤸‍♂️🫂",
           "Ato daktasen kn bujhlam na 😡",
-          "jan bal falaba,🙂",
+          "bal falaba,🙂",
           "ask amr mon vlo nei dakben na🙂",
           "Hmm jan ummah😘😘",
-          "jang hanga korba 🙂🖤",
+          "hanga korba 🙂🖤",
           "iss ato dako keno lojja lage to 🫦🙈",
           "suna tomare amar valo lage,🙈😽"
         ];
