@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
 	log.info("SERVER", `Web server running on port ${PORT}`);
 });
 
@@ -48,14 +48,12 @@ function startProject() {
 		} else if (restartCount >= maxRestarts) {
 			log.err(
 				"RESTART",
-				"Maximum restart attempts reached. Stopping..."
+				"Maximum restart attempts reached. Keeping web server running..."
 			);
-
-			process.exit(1);
 		} else if (code !== 0) {
 			log.err(
 				"PROCESS",
-				`Goat.js exited with code ${code}. No restart triggered.`
+				`Goat.js exited with code ${code}. Keeping web server running.`
 			);
 		}
 	});
@@ -65,8 +63,6 @@ function startProject() {
 			"STARTUP",
 			`Failed to start project: ${err.message}`
 		);
-
-		process.exit(1);
 	});
 }
 

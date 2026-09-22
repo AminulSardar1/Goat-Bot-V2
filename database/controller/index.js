@@ -56,7 +56,6 @@ module.exports = async function (api) {
 				spin.stop();
 				process.stderr.clearLine = defaultClearLine;
 				log.err("MONGODB", getText("indexController", "connectMongoDBError"), err);
-				process.exit();
 			}
 			break;
 		}
@@ -86,7 +85,6 @@ module.exports = async function (api) {
 				process.stderr.clearLine = defaultClearLine;
 				spin.stop();
 				log.err("SQLITE", getText("indexController", "connectMySQLError"), err);
-				process.exit();
 			}
 			break;
 		}

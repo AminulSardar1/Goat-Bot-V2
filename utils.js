@@ -19,16 +19,13 @@ const { config } = global.GoatBot;
 const { gmailAccount } = config.credentials;
 const { clientId, clientSecret, refreshToken, apiKey: googleApiKey } = gmailAccount;
 if (!clientId) {
-	log.err("CREDENTIALS", `Please provide a valid clientId in file ${path.normalize(global.client.dirConfig)}`);
-	process.exit();
+	log.warn("CREDENTIALS", `clientId is empty in file ${path.normalize(global.client.dirConfig)}`);
 }
 if (!clientSecret) {
-	log.err("CREDENTIALS", `Please provide a valid clientSecret in file ${path.normalize(global.client.dirConfig)}`);
-	process.exit();
+	log.warn("CREDENTIALS", `clientSecret is empty in file ${path.normalize(global.client.dirConfig)}`);
 }
 if (!refreshToken) {
-	log.err("CREDENTIALS", `Please provide a valid refreshToken in file ${path.normalize(global.client.dirConfig)}`);
-	process.exit();
+	log.warn("CREDENTIALS", `refreshToken is empty in file ${path.normalize(global.client.dirConfig)}`);
 }
 
 const oauth2ClientForGGDrive = new google.auth.OAuth2(clientId, clientSecret, "https://developers.google.com/oauthplayground");

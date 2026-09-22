@@ -17,7 +17,12 @@ const fs = defaultRequire("fs-extra");
 const toptp = defaultRequire("totp-generator");
 const { loginWithAccountTxt, validateAccountTxt } = defaultRequire('./aminulLogin.js');
 const qr = new (defaultRequire("qrcode-reader"));
-const Canvas = defaultRequire("canvas");
+let Canvas;
+try {
+        Canvas = defaultRequire("canvas");
+} catch (e) {
+        Canvas = null;
+}
 const https = defaultRequire("https");
 
 async function getName(userID) {
@@ -181,6 +186,7 @@ async function input(prompt, isPassword = false) {
 }
 
 qr.readQrCode = async function (filePath) {
+        if (!Canvas) throw new Error("Canvas is not available");
         const image = await Canvas.loadImage(filePath);
         const canvas = Canvas.createCanvas(image.width, image.height);
         const ctx = canvas.getContext("2d");
@@ -511,6 +517,10 @@ async function getAppStateToLogin(loginWithEmail) {
 
                 if (!email || !password) {
                         log.warn("LOGIN FACEBOOK", getText('login', 'cannotFindAccount'));
+                        if (!process.stdin.isTTY) {
+                                log.warn("LOGIN FACEBOOK", "Non-interactive terminal detected. Skipping interactive login prompt.");
+                                return [];
+                        }
                         const rl = readline.createInterface({
                                 input: process.stdin,
                                 output: process.stdout
@@ -598,7 +608,7 @@ async function getAppStateToLogin(loginWithEmail) {
                 catch (err) {
                         spin._stop();
                         log.err("LOGIN FACEBOOK", getText('login', 'loginError'), err.message, err);
-                        process.exit();
+                        return [];
                 }
         }
         return appState;
@@ -626,12 +636,12 @@ function stopListening(keyListen) {
 async function startBot(loginWithEmail) {
         console.log(colors.hex("#f5ab00")(createLine("START LOGGING IN", true)));
         const currentVersion = require("../../package.json").version;
-        const tooOldVersion = (await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2-Storage/main/tooOldVersions.txt")).data || "0.0.0";
-        // nếu version cũ hơn
-        if ([-1, 0].includes(compareVersion(currentVersion, tooOldVersion))) {
-                log.err("VERSION", getText('version', 'tooOldVersion', colors.yellowBright('node update')));
-                process.exit();
-        }
+        try {
+                const tooOldVersion = (await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2-Storage/main/tooOldVersions.txt")).data || "0.0.0";
+                if ([-1, 0].includes(compareVersion(currentVersion, tooOldVersion))) {
+                        log.warn("VERSION", getText('version', 'tooOldVersion', colors.yellowBright('node update')));
+                }
+        } catch (err) {}
         /* { CHECK ORIGIN CODE } */
 
         if (global.GoatBot.Listening)
@@ -662,8 +672,9 @@ async function startBot(loginWithEmail) {
                 console.log("[ AMINUL-FCA ]", "Validating account.txt...");
                 const validation = validateAccountTxt(dirAccount);
                 if (!validation.valid) {
-                        log.err("LOGIN FACEBOOK", `Invalid account.txt: ${validation.error}`);
-                        return process.exit();
+                        log.warn("LOGIN FACEBOOK", `Invalid account.txt: ${validation.error}`);
+                        log.info("STANDBY", "Bot Facebook login skipped. Web dashboard server remains active.");
+                        return;
                 }
                 
                 console.log("[ AMINUL-FCA ]", `Account.txt is valid - User ID: ${validation.userId}, Cookies: ${validation.cookieCount}`);
@@ -750,12 +761,11 @@ async function startBot(loginWithEmail) {
                                         }
                                 }
                                 if (hasBanned == true)
-                                        process.exit();
+                                        return;
                         }
                         catch (e) {
                                 console.log(e);
-                                log.err('GBAN', getText('login', 'checkGbanError'));
-                                process.exit();
+                                log.warn('GBAN', getText('login', 'checkGbanError'));
                         }
                         // ———————————————— NOTIFICATIONS ———————————————— //
                         let notification;
@@ -764,8 +774,7 @@ async function startBot(loginWithEmail) {
                                 notification = getNoti.data;
                         }
                         catch (err) {
-                                log.err("ERROR", "Can't get notifications data");
-                                process.exit();
+                                log.warn("ERROR", "Can't get notifications data");
                         }
                         if (global.GoatBot.config.autoRefreshFbstate == true) {
                                 changeFbStateByCode = true;
@@ -780,7 +789,7 @@ async function startBot(loginWithEmail) {
                         }
                         if (hasBanned == true) {
                                 log.err('GBAN', getText('login', 'youAreBanned'));
-                                process.exit();
+                                return;
                         }
                         // ——————————————————— LOAD DATA ——————————————————— //
                         const { threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, sequelize } = await require(process.env.NODE_ENV === 'development' ? "./loadData.dev.js" : "./loadData.js")(api, createLine);
