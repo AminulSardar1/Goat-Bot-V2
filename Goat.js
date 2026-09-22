@@ -210,40 +210,46 @@ if (config.autoRestart) {
 }
 
 (async () => {
-	let transporter;
+	const { gmailAccount } = config.credentials;
+	const { email, clientId, clientSecret, refreshToken } = gmailAccount;
+	const OAuth2 = google.auth.OAuth2;
+	const OAuth2_client = new OAuth2(clientId, clientSecret);
+	OAuth2_client.setCredentials({ refresh_token: refreshToken });
+	let accessToken;
 	try {
-		const { gmailAccount } = config.credentials || {};
-		if (gmailAccount && gmailAccount.refreshToken) {
-			const { email, clientId, clientSecret, refreshToken } = gmailAccount;
-			const OAuth2 = google.auth.OAuth2;
-			const OAuth2_client = new OAuth2(clientId, clientSecret);
-			OAuth2_client.setCredentials({ refresh_token: refreshToken });
-			const accessToken = await OAuth2_client.getAccessToken();
-			transporter = nodemailer.createTransport({
-				host: 'smtp.gmail.com',
-				service: 'Gmail',
-				auth: {
-					type: 'OAuth2',
-					user: email,
-					clientId,
-					clientSecret,
-					refreshToken,
-					accessToken
-				}
-			});
-		}
+		accessToken = await OAuth2_client.getAccessToken();
 	}
 	catch (err) {
-		log.warn("GMAIL", "Gmail API token expired or unconfigured - email notifications disabled");
+		throw new Error(getText("Goat", "googleApiTokenExpired"));
 	}
+	const transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		service: 'Gmail',
+		auth: {
+			type: 'OAuth2',
+			user: email,
+			clientId,
+			clientSecret,
+			refreshToken,
+			accessToken
+		}
+	});
 
 	async function sendMail({ to, subject, text, html, attachments }) {
-		if (!transporter) {
-			log.warn("GMAIL", "Cannot send email: Gmail transporter not configured");
-			return null;
-		}
+		const transporter = nodemailer.createTransport({
+			host: 'smtp.gmail.com',
+			service: 'Gmail',
+			auth: {
+				type: 'OAuth2',
+				user: email,
+				clientId,
+				clientSecret,
+				refreshToken,
+				accessToken
+			}
+		});
 		const mailOptions = {
-			from: config.credentials?.gmailAccount?.email,
+			from: email,
 			to,
 			subject,
 			text,
@@ -257,27 +263,19 @@ if (config.autoRestart) {
 	global.utils.sendMail = sendMail;
 	global.utils.transporter = transporter;
 
-	try {
-		const { data: { version } } = await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2/main/package.json", { timeout: 5000 });
-		const currentVersion = require("./package.json").version;
-		if (compareVersion(version, currentVersion) === 1)
-			utils.log.master("NEW VERSION", getText(
-				"Goat",
-				"newVersionDetected",
-				colors.gray(currentVersion),
-				colors.hex("#eb6a07", version),
-				colors.hex("#eb6a07", "node update")
-			));
-	} catch (err) {
-		// ignore version check network error
-	}
+	const { data: { version } } = await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2/main/package.json");
+	const currentVersion = require("./package.json").version;
+	if (compareVersion(version, currentVersion) === 1)
+		utils.log.master("NEW VERSION", getText(
+			"Goat",
+			"newVersionDetected",
+			colors.gray(currentVersion),
+			colors.hex("#eb6a07", version),
+			colors.hex("#eb6a07", "node update")
+		));
 
-	try {
-		const parentIdGoogleDrive = await utils.drive.checkAndCreateParentFolder("GoatBot");
-		utils.drive.parentID = parentIdGoogleDrive;
-	} catch (err) {
-		log.warn("DRIVE", "Google Drive not configured - cloud backup disabled");
-	}
+	const parentIdGoogleDrive = await utils.drive.checkAndCreateParentFolder("GoatBot");
+	utils.drive.parentID = parentIdGoogleDrive;
 
 	// ✅ fixed: always normal login.js
 	require(`./bot/login/login.js`);

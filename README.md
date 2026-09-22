@@ -1,4 +1,4 @@
-# 🐐 Goat-Bot-V2
+# 🐐 Goat-Bot-V2 BY AMINUL SARDAR
 
 **Goat Bot-V2** is a powerful Facebook Messenger chatbot that runs using your **Facebook account's appstate (cookies)**. This bot listens to your messages in Messenger and handles 250+ useful commands with an easily customizable structure for developers.
 
