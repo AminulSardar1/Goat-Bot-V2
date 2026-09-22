@@ -1,1 +1,201 @@
-const _0x1871fc=_0x1265;(function(_0x500054,_0x35e402){const _0x179fa9=_0x1265,_0x1921f5=_0x500054();while(!![]){try{const _0x2872f9=-parseInt(_0x179fa9(0x11d))/0x1+-parseInt(_0x179fa9(0x129))/0x2+parseInt(_0x179fa9(0x101))/0x3*(-parseInt(_0x179fa9(0x11b))/0x4)+-parseInt(_0x179fa9(0x102))/0x5+-parseInt(_0x179fa9(0x115))/0x6*(-parseInt(_0x179fa9(0x10f))/0x7)+-parseInt(_0x179fa9(0x126))/0x8+parseInt(_0x179fa9(0x12b))/0x9;if(_0x2872f9===_0x35e402)break;else _0x1921f5['push'](_0x1921f5['shift']());}catch(_0x1121c6){_0x1921f5['push'](_0x1921f5['shift']());}}}(_0x4c69,0x1bba1));function _0x1265(_0x42da76,_0x1688f5){const _0x4c69d1=_0x4c69();return _0x1265=function(_0x12657b,_0x387aed){_0x12657b=_0x12657b-0xfc;let _0x3e5430=_0x4c69d1[_0x12657b];return _0x3e5430;},_0x1265(_0x42da76,_0x1688f5);}const fs=require(_0x1871fc(0xff)),path=require(_0x1871fc(0xfe)),login=require(_0x1871fc(0x122));async function loginWithAccountTxt(_0x49f2e1,_0x5e2c3d={}){const _0xa51e44=_0x1871fc;try{if(!fs[_0xa51e44(0x12d)](_0x49f2e1))throw new Error(_0xa51e44(0x121)+_0x49f2e1);const _0x3ba5a4=fs[_0xa51e44(0x11e)](_0x49f2e1,'utf8')[_0xa51e44(0x112)]();let _0x10c440;try{_0x10c440=JSON[_0xa51e44(0x12f)](_0x3ba5a4);if(!Array[_0xa51e44(0x11c)](_0x10c440))throw new Error(_0xa51e44(0x10e));const _0x27531f=['c_user','xs',_0xa51e44(0x109)],_0x2accaa=_0x10c440[_0xa51e44(0x124)](_0x18fea4=>_0x18fea4[_0xa51e44(0x12a)]||_0x18fea4[_0xa51e44(0x128)]);for(const _0x11bbcb of _0x27531f){if(!_0x2accaa[_0xa51e44(0x123)](_0x11bbcb))throw new Error(_0xa51e44(0xfc)+_0x11bbcb);}_0x10c440=_0x10c440[_0xa51e44(0x124)](_0x34e33d=>{const _0x3d15d6=_0xa51e44;if(_0x34e33d[_0x3d15d6(0x12a)]&&!_0x34e33d[_0x3d15d6(0x128)])return{..._0x34e33d,'key':_0x34e33d[_0x3d15d6(0x12a)],'domain':_0x34e33d[_0x3d15d6(0x100)]||_0x3d15d6(0x108),'path':_0x34e33d['path']||'/','hostOnly':_0x34e33d[_0x3d15d6(0x10d)]||![],'creation':_0x34e33d[_0x3d15d6(0x117)]||new Date()[_0x3d15d6(0x118)](),'lastAccessed':_0x34e33d[_0x3d15d6(0x131)]||new Date()[_0x3d15d6(0x118)]()};return _0x34e33d;});}catch(_0x93a2c4){throw new Error('Failed\x20to\x20parse\x20account.txt:\x20'+_0x93a2c4[_0xa51e44(0x130)]);}const _0x43562c={'forceLogin':!![],'listenEvents':!![],'updatePresence':!![],'selfListen':!![],'selfListenEvent':!![],'autoMarkDelivery':![],'autoReconnect':!![],'online':!![],'userAgent':'Mozilla/5.0\x20(Windows\x20NT\x2010.0;\x20Win64;\x20x64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/125.0.0.0\x20Safari/537.36',..._0x5e2c3d};return console[_0xa51e44(0x10c)]('[\x20AMINUL-LOGIN\x20]',_0xa51e44(0x10b)),console[_0xa51e44(0x10c)]('[\x20AMINUL-LOGIN\x20]',_0xa51e44(0x103)+_0x10c440[_0xa51e44(0x114)]+'\x20cookies\x20in\x20account.txt'),new Promise((_0xb972c7,_0x260559)=>{login({'appState':_0x10c440},_0x43562c,(_0x4b88ff,_0xe4e3e2)=>{const _0x1b8c9c=_0x1265;if(_0x4b88ff){console['error'](_0x1b8c9c(0x113),'Login\x20failed:',_0x4b88ff);if(_0x4b88ff['error']===_0x1b8c9c(0x12c))return _0x260559(new Error(_0x1b8c9c(0x12e)));else{if(_0x4b88ff[_0x1b8c9c(0x11a)]==='checkpoint-required')return _0x260559(new Error(_0x1b8c9c(0x10a)));else{if(_0x4b88ff['toString']()['includes'](_0x1b8c9c(0x106)))return _0x260559(new Error(_0x1b8c9c(0xfd)));}}return _0x260559(_0x4b88ff);}console[_0x1b8c9c(0x10c)]('[\x20AMINUL-LOGIN\x20]','Successfully\x20logged\x20in\x20with\x20aminul-new-fca!');try{const _0x2bc6fb=_0xe4e3e2[_0x1b8c9c(0x110)]();fs[_0x1b8c9c(0x104)](_0x49f2e1,JSON[_0x1b8c9c(0x120)](_0x2bc6fb,null,0x2)),console[_0x1b8c9c(0x10c)](_0x1b8c9c(0x113),_0x1b8c9c(0x125));}catch(_0x19d9b8){console[_0x1b8c9c(0x116)](_0x1b8c9c(0x113),'Warning:\x20Could\x20not\x20save\x20updated\x20session:',_0x19d9b8[_0x1b8c9c(0x130)]);}_0xb972c7(_0xe4e3e2);});});}catch(_0x4c403d){console[_0xa51e44(0x11a)](_0xa51e44(0x113),_0xa51e44(0x105),_0x4c403d[_0xa51e44(0x130)]);throw _0x4c403d;}}function getUserIdFromAppState(_0x523775){const _0x3ab704=_0x1871fc;try{const _0x8ad3c9=_0x523775[_0x3ab704(0x111)](_0x57b5d6=>_0x57b5d6[_0x3ab704(0x12a)]===_0x3ab704(0x127)||_0x57b5d6[_0x3ab704(0x128)]==='c_user');return _0x8ad3c9?_0x8ad3c9['value']:null;}catch(_0x41e3d7){return null;}}function _0x4c69(){const _0x13beb2=['filter','Missing\x20required\x20cookie:\x20','Invalid\x20or\x20expired\x20session.\x20Please\x20update\x20your\x20account.txt\x20with\x20fresh\x20cookies.','path','fs-extra','domain','12EBuyZl','421810jpDSrU','Found\x20','writeFileSync','Error\x20during\x20login\x20process:','appState','Missing\x20required\x20cookies:\x20','.facebook.com','datr','Facebook\x20checkpoint\x20required.\x20Please\x20log\x20into\x20Facebook\x20manually\x20to\x20resolve\x20security\x20checks.','Starting\x20login\x20with\x20account.txt...','log','hostOnly','Invalid\x20appState\x20format:\x20Expected\x20an\x20array','288526gVecnc','getAppState','find','trim','[\x20AMINUL-LOGIN\x20]','length','12VktGGj','warn','creation','toISOString','Not\x20a\x20valid\x20array\x20format','error','36520naDEpt','isArray','218435eXiDuP','readFileSync','utf8','stringify','Account\x20file\x20not\x20found:\x20','aminul-new-fca','includes','map','Updated\x20account.txt\x20with\x20fresh\x20session\x20data','479744TleqGJ','c_user','key','329532QFUKEV','name','5356656DPqZGp','login-approval','existsSync','Login\x20approval\x20required.\x20Please\x20check\x20your\x20Facebook\x20account\x20for\x20security\x20alerts.','parse','message','lastAccessed'];_0x4c69=function(){return _0x13beb2;};return _0x4c69();}function validateAccountTxt(_0xd9faeb){const _0xf7ebc1=_0x1871fc;try{if(!fs[_0xf7ebc1(0x12d)](_0xd9faeb))return{'valid':![],'error':'File\x20does\x20not\x20exist'};const _0x415690=fs[_0xf7ebc1(0x11e)](_0xd9faeb,_0xf7ebc1(0x11f))[_0xf7ebc1(0x112)](),_0x21facd=JSON[_0xf7ebc1(0x12f)](_0x415690);if(!Array[_0xf7ebc1(0x11c)](_0x21facd))return{'valid':![],'error':_0xf7ebc1(0x119)};const _0x64d692=[_0xf7ebc1(0x127),'xs',_0xf7ebc1(0x109)],_0x145952=_0x21facd['map'](_0x4de88d=>_0x4de88d[_0xf7ebc1(0x12a)]||_0x4de88d[_0xf7ebc1(0x128)]),_0x45efdd=_0x64d692[_0xf7ebc1(0x132)](_0x5009ef=>!_0x145952['includes'](_0x5009ef));if(_0x45efdd[_0xf7ebc1(0x114)]>0x0)return{'valid':![],'error':_0xf7ebc1(0x107)+_0x45efdd['join'](',\x20')};const _0x2dd575=getUserIdFromAppState(_0x21facd);return{'valid':!![],'userId':_0x2dd575,'cookieCount':_0x21facd['length'],'hasValidSession':!!_0x2dd575};}catch(_0x28e332){return{'valid':![],'error':'Parse\x20error:\x20'+_0x28e332['message']};}}module['exports']={'loginWithAccountTxt':loginWithAccountTxt,'getUserIdFromAppState':getUserIdFromAppState,'validateAccountTxt':validateAccountTxt};
+const fs = require('fs-extra')
+const login = require('aminul-new-fca')
+
+async function loginWithAccountTxt(accountFilePath, options = {}) {
+  try {
+    if (!fs.existsSync(accountFilePath)) {
+      throw new Error('Account file not found: ' + accountFilePath)
+    }
+
+    const rawContent = fs.readFileSync(accountFilePath, 'utf8').trim()
+    let appState
+
+    try {
+      appState = JSON.parse(rawContent)
+
+      if (!Array.isArray(appState)) {
+        throw new Error('Invalid appState format: Expected an array')
+      }
+
+      const requiredCookies = ['c_user', 'xs', 'datr']
+      const cookieNames = appState.map((c) => c.name || c.key)
+
+      for (const cookieName of requiredCookies) {
+        if (!cookieNames.includes(cookieName)) {
+          throw new Error('Missing required cookie: ' + cookieName)
+        }
+      }
+
+      appState = appState.map((cookie) => {
+        if (cookie.name && !cookie.key) {
+          return {
+            ...cookie,
+            key: cookie.name,
+            domain: cookie.domain || '.facebook.com',
+            path: cookie.path || '/',
+            hostOnly: cookie.hostOnly || false,
+            creation: cookie.creation || new Date().toISOString(),
+            lastAccessed: cookie.lastAccessed || new Date().toISOString(),
+          }
+        }
+
+        return cookie
+      })
+    } catch (parseError) {
+      throw new Error('Failed to parse account.txt: ' + parseError.message)
+    }
+
+    const loginOptions = {
+      forceLogin: true,
+      listenEvents: true,
+      updatePresence: true,
+      selfListen: true,
+      selfListenEvent: true,
+      autoMarkDelivery: false,
+      autoReconnect: true,
+      online: true,
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+      ...options,
+    }
+
+    console.log('[ AMINUL-LOGIN ]', 'Starting login with account.txt...')
+    console.log(
+      '[ AMINUL-LOGIN ]',
+      'Found ' + appState.length + ' cookies in account.txt'
+    )
+
+    return new Promise((resolve, reject) => {
+      login({ appState }, loginOptions, (err, api) => {
+        if (err) {
+          console.error('[ AMINUL-LOGIN ]', 'Login failed:', err)
+
+          if (err.error === 'login-approval') {
+            return reject(
+              new Error(
+                'Login approval required. Please check your Facebook account for security alerts.'
+              )
+            )
+          }
+
+          if (err.error === 'checkpoint-required') {
+            return reject(
+              new Error(
+                'Facebook checkpoint required. Please log into Facebook manually to resolve security checks.'
+              )
+            )
+          }
+
+          if (err.toString().includes('appState')) {
+            return reject(
+              new Error(
+                'Invalid or expired session. Please update your account.txt with fresh cookies.'
+              )
+            )
+          }
+
+          return reject(err)
+        }
+
+        console.log(
+          '[ AMINUL-LOGIN ]',
+          'Successfully logged in with aminul-new-fca!'
+        )
+
+        try {
+          const newAppState = api.getAppState()
+          fs.writeFileSync(
+            accountFilePath,
+            JSON.stringify(newAppState, null, 2)
+          )
+
+          console.log(
+            '[ AMINUL-LOGIN ]',
+            'Updated account.txt with fresh session data'
+          )
+        } catch (saveError) {
+          console.warn(
+            '[ AMINUL-LOGIN ]',
+            'Warning: Could not save updated session:',
+            saveError.message
+          )
+        }
+
+        resolve(api)
+      })
+    })
+  } catch (error) {
+    console.error(
+      '[ AMINUL-LOGIN ]',
+      'Error during login process:',
+      error.message
+    )
+    throw error
+  }
+}
+
+function getUserIdFromAppState(appState) {
+  try {
+    const userCookie = appState.find(
+      (c) => c.name === 'c_user' || c.key === 'c_user'
+    )
+
+    return userCookie ? userCookie.value : null
+  } catch {
+    return null
+  }
+}
+
+function validateAccountTxt(accountFilePath) {
+  try {
+    if (!fs.existsSync(accountFilePath)) {
+      return {
+        valid: false,
+        error: 'File does not exist',
+      }
+    }
+
+    const rawContent = fs.readFileSync(accountFilePath, 'utf8').trim()
+    const appState = JSON.parse(rawContent)
+
+    if (!Array.isArray(appState)) {
+      return {
+        valid: false,
+        error: 'Not a valid array format',
+      }
+    }
+
+    const requiredCookies = ['c_user', 'xs', 'datr']
+    const cookieNames = appState.map((c) => c.name || c.key)
+    const missing = requiredCookies.filter(
+      (name) => !cookieNames.includes(name)
+    )
+
+    if (missing.length > 0) {
+      return {
+        valid: false,
+        error: 'Missing required cookies: ' + missing.join(', '),
+      }
+    }
+
+    const userId = getUserIdFromAppState(appState)
+
+    return {
+      valid: true,
+      userId,
+      cookieCount: appState.length,
+      hasValidSession: !!userId,
+    }
+  } catch (error) {
+    return {
+      valid: false,
+      error: 'Parse error: ' + error.message,
+    }
+  }
+}
+
+module.exports = {
+  loginWithAccountTxt,
+  getUserIdFromAppState,
+  validateAccountTxt,
+}
