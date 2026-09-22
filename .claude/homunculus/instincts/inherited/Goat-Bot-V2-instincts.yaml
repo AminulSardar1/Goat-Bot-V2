@@ -1,0 +1,497 @@
+# Instincts generated from https://github.com/AminulSardar1/Goat-Bot-V2
+# Generated: 2026-07-28T17:06:38.156Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Goat-Bot-V2-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Commit Length
+
+## Action
+
+Keep commit messages concise (~24 characters)
+
+## Evidence
+
+- Average commit message length: 24 chars
+- Based on 100 commits
+
+---
+id: Goat-Bot-V2-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: Goat-Bot-V2-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Goat-Bot-V2-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Goat-Bot-V2-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Goat-Bot-V2-workflow-update-account-txt
+trigger: "when doing update account txt"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Workflow Update Account Txt
+
+## Action
+
+Follow the update-account-txt workflow:
+1. Edit account.txt to add or update values, timestamps, or key-value pairs
+2. Commit the changes with a message indicating the update (e.g., 'Update account.txt', 'Update account.txt from dashboard', or similar)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: account.txt
+
+---
+id: Goat-Bot-V2-workflow-update-package-json
+trigger: "when doing update package json"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Workflow Update Package Json
+
+## Action
+
+Follow the update-package-json workflow:
+1. Edit package.json to update dependency versions or engine requirements
+2. Commit the changes with a message indicating the update (e.g., 'Update package.json', 'Update aminul-new-fca dependency version', etc.)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: package.json
+
+---
+id: Goat-Bot-V2-workflow-update-command-script
+trigger: "when doing update command script"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Workflow Update Command Script
+
+## Action
+
+Follow the update-command-script workflow:
+1. Edit the relevant file in scripts/cmds (e.g., unsend.js, bot.js, prefix.js, help.js, uptime.js)
+2. Commit the changes with a message indicating the update
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: scripts/cmds/*.js
+
+---
+id: Goat-Bot-V2-workflow-delete-command-script
+trigger: "when doing delete command script"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Workflow Delete Command Script
+
+## Action
+
+Follow the delete-command-script workflow:
+1. Delete the relevant file from scripts/cmds (e.g., video.js, stat.js)
+2. Commit the deletion with a message indicating which command was removed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: scripts/cmds/*.js
+
+---
+id: Goat-Bot-V2-workflow-update-github-actions-workflow
+trigger: "when doing update github actions workflow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Workflow Update Github Actions Workflow
+
+## Action
+
+Follow the update-github-actions-workflow workflow:
+1. Edit .github/workflows/main.yml to change configuration (e.g., Node.js version)
+2. Commit the changes with a descriptive message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .github/workflows/main.yml
+
+---
+id: goat-bot-v2-instinct-file-naming
+trigger: "When creating or renaming a file in the repository"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct File Naming
+
+## Action
+
+Use camelCase for file names (e.g., unsend.js, bot.js)
+
+## Evidence
+
+- Pattern in files: unsend.js, bot.js, prefix.js, help.js, uptime.js
+
+---
+id: goat-bot-v2-instinct-function-naming
+trigger: "When defining a function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in scripts/cmds/*.js
+
+---
+id: goat-bot-v2-instinct-class-naming
+trigger: "When defining a class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern inferred from naming conventions in analysis
+
+---
+id: goat-bot-v2-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern inferred from naming conventions in analysis
+
+---
+id: goat-bot-v2-instinct-import-style
+trigger: "When importing modules in JavaScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in scripts/cmds/*.js
+- Analysis: importStyle is relative
+
+---
+id: goat-bot-v2-instinct-export-style
+trigger: "When exporting functions or objects from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in scripts/cmds/*.js
+- Analysis: exportStyle is named
+
+---
+id: goat-bot-v2-instinct-try-catch-error-handling
+trigger: "When handling potential errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Try Catch Error Handling
+
+## Action
+
+Wrap error-prone code in try-catch blocks
+
+## Evidence
+
+- Analysis: errorHandling style is try-catch
+
+---
+id: goat-bot-v2-instinct-git-commit-format
+trigger: "When making a commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Git Commit Format
+
+## Action
+
+Use simple, descriptive commit messages starting with an action verb (e.g., 'Update', 'Delete'), optionally followed by the filename
+
+## Evidence
+
+- Seen in commit: 'Update account.txt'
+- Seen in commit: 'Delete scripts/cmds/video.js'
+- Pattern in commit examples
+
+---
+id: goat-bot-v2-instinct-update-account-txt
+trigger: "When someone wants to update account information, such as credentials, timestamps, or other key-value data"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Update Account Txt
+
+## Action
+
+Edit account.txt and commit with a message like 'Update account.txt'
+
+## Evidence
+
+- Workflow: update-account-txt
+- Seen in commit: 'Update account.txt'
+
+---
+id: goat-bot-v2-instinct-update-package-json
+trigger: "When someone wants to update dependencies, change Node.js version requirements, or adjust project metadata"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Update Package Json
+
+## Action
+
+Edit package.json and commit with a message indicating the update (e.g., 'Update package.json')
+
+## Evidence
+
+- Workflow: update-package-json
+- Seen in commit: 'Update package.json'
+
+---
+id: goat-bot-v2-instinct-update-command-script
+trigger: "When someone wants to modify the logic or implementation of a specific bot command"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Update Command Script
+
+## Action
+
+Edit the relevant file in scripts/cmds and commit with a message indicating the update
+
+## Evidence
+
+- Workflow: update-command-script
+- Seen in commit: 'Update unsend.js', 'Update bot.js'
+
+---
+id: goat-bot-v2-instinct-delete-command-script
+trigger: "When someone wants to remove a command that is no longer needed or supported"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Delete Command Script
+
+## Action
+
+Delete the relevant file from scripts/cmds and commit with a message indicating which command was removed
+
+## Evidence
+
+- Workflow: delete-command-script
+- Seen in commit: 'Delete scripts/cmds/video.js', 'Delete scripts/cmds/stat.js'
+
+---
+id: goat-bot-v2-instinct-update-github-actions-workflow
+trigger: "When someone wants to adjust CI/CD settings, such as updating the Node.js version used in workflows"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Update Github Actions Workflow
+
+## Action
+
+Edit .github/workflows/main.yml and commit with a descriptive message
+
+## Evidence
+
+- Workflow: update-github-actions-workflow
+- Pattern in files: .github/workflows/main.yml
+
+---
+id: goat-bot-v2-instinct-testing-pattern
+trigger: "When writing tests for the project"
+confidence: 0.3
+domain: testing
+source: repo-analysis
+source_repo: AminulSardar1/Goat-Bot-V2
+---
+
+# Goat Bot V2 Instinct Testing Pattern
+
+## Action
+
+Place test files in a separate location from source code (not detected in src layout, but testLocation is 'separate')
+
+## Evidence
+
+- Architecture: testLocation is 'separate'
+- No explicit test files detected
+
